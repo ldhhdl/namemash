@@ -70,18 +70,19 @@ func FilterNonAlphaCharacters(s string) string {
 }
 
 func BuildCandidates(fname string, lname string) []string {
-	var candidates []string
-	candidates = append(candidates, fname+lname)
-	candidates = append(candidates, lname+fname)
-	candidates = append(candidates, fname+"."+lname)
-	candidates = append(candidates, lname+"."+fname)
-	candidates = append(candidates, lname+string(fname[0]))
-	candidates = append(candidates, string(fname[0])+lname)
-	candidates = append(candidates, string(lname[0])+fname)
-	candidates = append(candidates, string(fname[0])+"."+lname)
-	candidates = append(candidates, string(lname[0])+"."+fname)
-	candidates = append(candidates, fname)
-	candidates = append(candidates, lname)
+	candidates := []string{
+		fname + lname,
+		lname + fname,
+		fname + "." + lname,
+		lname + "." + fname,
+		lname + string(fname[0]),
+		string(fname[0]) + lname,
+		string(lname[0]) + fname,
+		string(fname[0]) + "." + lname,
+		string(lname[0]) + "." + fname,
+		fname,
+		lname,
+	}
 	return candidates
 }
 
